@@ -4,9 +4,9 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
-import About from "./components/about";
+import About from "./components/About";
 import Accomplishments from "./components/Accomplishments";
 import Footer from "./components/footer";
 import Contact from "./components/Contact";

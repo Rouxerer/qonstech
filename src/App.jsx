@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import About from "./components/About";
 import Accomplishments from "./components/Accomplishments";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import BackToTopButton from "./components/BackToTop"; // import button
 import { useEffect } from "react";

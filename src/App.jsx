@@ -10,14 +10,14 @@ import About from "./components/About";
 import Accomplishments from "./components/Accomplishments";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
-import BackToTopButton from "./components/BackToTop"; // import button
+import BackToTopButton from "./components/BackToTop";
 import { useEffect } from "react";
 
 function Layout() {
   const location = useLocation();
 
-  const hideNavbar = location.pathname === "/contact"; // hides navbar in contact
-  const hideBackToTop = location.pathname === "/contact"; // hides back to top in contact
+  const hideNavbar = location.pathname === "/contact";
+  const hideBackToTop = location.pathname === "/contact";
 
   return (
     <>
@@ -38,7 +38,6 @@ function Layout() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
 
-      {/* Show Back to Top button unless on /contact */}
       {!hideBackToTop && <BackToTopButton />}
     </>
   );

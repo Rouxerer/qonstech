@@ -1,12 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-scroll";
 import "../index.css";
-import Logo from "../assets/logo.png";
 import FullLogo from "../assets/qonstech-nobg.png";
 
 function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="sticky z-50 top-0 flex h-[80px] w-full shadow-2xs items-center bg-white flex-row justify-between px-[25px] py-3 transition-colors duration-300 ease-in sm:px-[50px] md:px-[150px]">
+    <div
+      className={`fixed top-0 z-50 flex h-[80px] w-full items-center flex-row justify-between px-[25px] py-3 transition-colors duration-300 ease-in sm:px-[50px] md:px-[150px] shadow-md ${
+        scrolled ? "bg-white" : "bg-white/50"
+      }`}
+    >
       <div className="flex w-[50%] h-full justify-start items-center">
         <img
           src={FullLogo}

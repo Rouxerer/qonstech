@@ -1,61 +1,106 @@
-import React from "react";
-import Build1 from "../assets/build1.jpg";
-import Build2 from "../assets/build2.jpg";
-import Build3 from "../assets/build3.jpg";
+import React, { useRef } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import SpotlightCard from "./SpotlightCard";
+import { motion } from "framer-motion";
 
 function Accomplishments() {
-  const projects = [
-    { title: "Project 1", image: Build1 },
-    { title: "Project 2", image: Build2 },
-    { title: "Project 3", image: Build3 },
-  ];
+  const sliderRef = useRef(null);
+
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    adaptiveHeight: true,
+  };
+
+  // Animation variants for cards
+  const cardVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.9 },
+    visible: { opacity: 1, y: 0, scale: 1 },
+  };
 
   return (
     <section
       id="services"
-      className="w-full bg-white h-full pb-70 flex justify-center items-center shadow-xl"
+      className="w-full bg-white py-20 flex justify-center items-center shadow-xl overflow-hidden"
     >
-      <div className="w-[90%] md:w-[70%] flex flex-col items-center gap-16">
+      <div className="w-[90%] md:w-[90%] flex flex-col items-center gap-16">
         {/* Section Title */}
-        <h1 className="text-4xl font-bold text-blue-950 text-center">
+        <motion.h1
+          className="text-4xl font-bold text-blue-950 text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           Projects
-        </h1>
+        </motion.h1>
 
-        {/* Card Container */}
-        <div className="flex flex-col md:flex-row gap-10 w-full">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="relative group w-full md:w-1/3 h-[450px] rounded-xl overflow-hidden shadow-md border border-gray-300"
+        {/* First Row */}
+        <motion.div
+          className="flex w-full h-120 bg-gray-200/50 rounded-2xl justify-center items-center gap-20"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {[1, 2, 3].map((num, i) => (
+            <motion.div
+              key={i}
+              variants={cardVariants}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="flex w-[25%] h-[80%]"
             >
-              {/* Background Image */}
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-
-              {/* ✅ Dark overlay only on hover */}
-              <div className="absolute inset-0 w-full h-full bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-
-              {/* Title (above overlay) */}
-              <div className="absolute bottom-8 w-full z-20 flex justify-center transition-transform duration-500 group-hover:-translate-y-80">
-                <h2 className="text-2xl font-extrabold text-white bg-black/40 px-4 py-2 rounded">
-                  {project.title}
-                </h2>
-              </div>
-
-              {/* Paragraph (above overlay) */}
-              <div className="absolute top-1/4 left-[5%] w-[90%] opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-20 text-white text-center text-lg">
-                <p>
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna
-                  aliqua."
+              <SpotlightCard
+                className="custom-spotlight-card flex w-full h-full bg-amber-700 rounded-xl flex-col"
+                spotlightColor="rgba(0, 229, 255, 0.2)"
+              >
+                <h5 className="pl-2 text-sm text-white">
+                  Solar Panels Installed in Koronadal City
+                </h5>
+                <p className="pl-3 text-white text-sm">
+                  Solar panels installed in the crown city of the south
                 </p>
-              </div>
-            </div>
+              </SpotlightCard>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* Second Row */}
+        <motion.div
+          className="flex w-full h-120 bg-gray-200/50 rounded-2xl justify-center items-center gap-20"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          {[1, 2, 3].map((num, i) => (
+            <motion.div
+              key={i}
+              variants={cardVariants}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="flex w-[25%] h-[80%]"
+            >
+              <SpotlightCard
+                className="custom-spotlight-card flex w-full h-full bg-amber-700 rounded-xl flex-col"
+                spotlightColor="rgba(0, 229, 255, 0.2)"
+              >
+                <h5 className="pl-2 text-sm text-white">
+                  Solar Panels Installed in Koronadal City
+                </h5>
+                <p className="pl-3 text-white text-sm">
+                  Solar panels installed in the crown city of the south
+                </p>
+              </SpotlightCard>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

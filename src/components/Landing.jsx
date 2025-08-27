@@ -37,7 +37,8 @@ function Landing() {
           }}
           className="text-4xl md:text-6xl font-bold tracking-wide text-center"
         >
-          QONSTECH CONSTRUCTION CORP.
+          QONSTECH CONSTRUCTION CORP. <br />
+          "The one that got away"
         </motion.h1>
       </div>
     </div>

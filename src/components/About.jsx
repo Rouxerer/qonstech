@@ -17,7 +17,9 @@ function About() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <h1 className="overflow-hidden text-blue-950">About Us</h1>
+        <h1 className="overflow-hidden text-blue-950 text-center">
+          VISION MISSION
+        </h1>
       </motion.div>
 
       {/* Content */}
@@ -55,7 +57,20 @@ function About() {
                 viewport={{ once: true }}
               >
                 <h4 className="w-[60%] text-blue-950 font-semibold border-solid border-b-1 border-blue-950/10 p-2">
-                  Company Overview
+                  Vision
+                </h4>
+                <span className="text-justify">
+                  Qonstech Construction Corp., led by Arch. Antonio D.
+                  Villanueva Jr., offers project packaging services for both
+                  private and government sectors nationwide, handling
+                  residential, commercial, recreational, and industrial
+                  projects. With 30 years of experience, a strong team, and
+                  complete equipment, Qonstech Construction Corp. provides full
+                  construction services, including project management and all
+                  major engineering works.
+                </span>
+                <h4 className="w-[60%] text-blue-950 font-semibold border-solid border-b-1 border-blue-950/10 p-2">
+                  Mission
                 </h4>
                 <span className="text-justify">
                   Qonstech Construction Corp., led by Arch. Antonio D.

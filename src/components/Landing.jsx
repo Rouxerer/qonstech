@@ -39,7 +39,7 @@ function Landing() {
         >
           QONSTECH CONSTRUCTION CORP. <br />
           <p>
-            <i>“Stronger. Smarter. Safer.”</i>
+            <i className="text-lg">“Stronger. Smarter. Safer.”</i>
           </p>
         </motion.h1>
       </div>

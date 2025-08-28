@@ -38,7 +38,9 @@ function Landing() {
           className="text-4xl md:text-6xl font-bold tracking-wide text-center"
         >
           QONSTECH CONSTRUCTION CORP. <br />
-          “Stronger. Smarter. Safer.”
+          <p>
+            <i>“Stronger. Smarter. Safer.”</i>
+          </p>
         </motion.h1>
       </div>
     </div>
